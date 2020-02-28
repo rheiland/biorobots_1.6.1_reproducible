@@ -72,14 +72,13 @@
 #include <cmath>
 #include <omp.h>
 #include <fstream>
-#include <string> 
 
 #include "./core/PhysiCell.h"
 #include "./modules/PhysiCell_standard_modules.h" 
 
 // custom user modules 
 
-#include "./custom_modules/heterogeneity.h" 
+#include "./custom_modules/biorobots.h" 
 	
 using namespace BioFVM;
 using namespace PhysiCell;
@@ -95,14 +94,12 @@ int main( int argc, char* argv[] )
 	{ XML_status = load_PhysiCell_config_file( "./config/PhysiCell_settings.xml" ); }
 	if( !XML_status )
 	{ exit(-1); }
-
+	
 	// OpenMP setup
 	omp_set_num_threads(PhysiCell_settings.omp_num_threads);
 	
 	// PNRG setup 
 	// SeedRandom(); 
-	SeedRandom( parameters.ints( "random_seed" ) ); 
-	SeedRandom_per_thread();
 	
 	// time setup 
 	std::string time_units = "min"; 
@@ -132,7 +129,7 @@ int main( int argc, char* argv[] )
 	set_save_biofvm_cell_data_as_custom_matlab( true );
 	
 	// save a simulation snapshot 
-	
+
 	char filename[1024];
 	sprintf( filename , "%s/initial" , PhysiCell_settings.folder.c_str() ); 
 	save_PhysiCell_to_MultiCellDS_xml_pugi( filename , microenvironment , PhysiCell_globals.current_time ); 
@@ -144,7 +141,7 @@ int main( int argc, char* argv[] )
 
 	// for simplicity, set a pathology coloring function 
 	
-	std::vector<std::string> (*cell_coloring_function)(Cell*) = heterogeneity_coloring_function;
+	std::vector<std::string> (*cell_coloring_function)(Cell*) = robot_coloring_function;
 	
 	sprintf( filename , "%s/initial.svg" , PhysiCell_settings.folder.c_str() ); 
 	SVG_plot( filename , microenvironment, 0.0 , PhysiCell_globals.current_time, cell_coloring_function );
