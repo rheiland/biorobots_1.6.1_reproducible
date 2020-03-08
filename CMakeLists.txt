@@ -1,7 +1,7 @@
 cmake_minimum_required (VERSION 2.8)
 
 # put before COMPILER so we can subsitute compiler on command line.
-project (PhysiCell)
+project (biorobots)
 
 FIND_PACKAGE (OpenMP)
 if (OPENMP_FOUND)
@@ -44,5 +44,5 @@ add_subdirectory (custom_modules)
 set (EXTRA_LIBS ${EXTRA_LIBS} ModulesFunctions BioFVMFunctions CoreFunctions ModulesFunctions CustomModulesFunctions ModulesFunctions )
 
 # add the executable
-add_executable (PhysiCell main.cpp)
-target_link_libraries (PhysiCell  ${EXTRA_LIBS})
+add_executable (biorobots main.cpp)
+target_link_libraries (biorobots  ${EXTRA_LIBS})
