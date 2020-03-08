@@ -3,8 +3,8 @@ language: cpp
 
 os: 
   - linux
-  - osx
-  - windows
+#  - osx
+#  - windows
 
 # Compiler selection
 compiler:
