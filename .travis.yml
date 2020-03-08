@@ -12,7 +12,12 @@ compiler:
 
 # Build steps
 script:
+  - cd cmake_build
+  - cmake ..
   - make 
+  - cp biorobots ..
+  - cd ..
+  - biorobots 
 
 notifications:
   email:
