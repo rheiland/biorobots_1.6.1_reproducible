@@ -31,9 +31,9 @@ script:
   - cd cmake_build
   - cmake ..
   - make 
-  # - cp biorobots ..
-  # - cd ..
-  # - biorobots 
+  - cp biorobots ..
+  - cd ..
+  - biorobots 
 
 notifications:
   email:
