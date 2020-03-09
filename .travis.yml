@@ -33,7 +33,7 @@ script:
   - make 
   - cp biorobots ..
   - cd ..
-  - biorobots 
+  - ./biorobots 
 
 notifications:
   email:
