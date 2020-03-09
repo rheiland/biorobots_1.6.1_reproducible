@@ -4,7 +4,7 @@ os:
 
 language: cpp
 
-dist: trusty
+dist: xenial
 
 addons:
   apt:
@@ -31,9 +31,9 @@ script:
   - cd cmake_build
   - cmake ..
   - make 
-  - cp biorobots ..
-  - cd ..
-  - biorobots 
+  # - cp biorobots ..
+  # - cd ..
+  # - biorobots 
 
 notifications:
   email:
