@@ -41,7 +41,7 @@ add_subdirectory (modules)
 include_directories ("${PROJECT_SOURCE_DIR}/custom_modules")
 add_subdirectory (custom_modules)
 
-set (EXTRA_LIBS ${EXTRA_LIBS} ModulesFunctions BioFVMFunctions CoreFunctions ModulesFunctions CustomModulesFunctions ModulesFunctions )
+set (EXTRA_LIBS ${EXTRA_LIBS} CustomModulesFunctions ModulesFunctions BioFVMFunctions CoreFunctions )
 
 # add the executable
 add_executable (biorobots main.cpp)
