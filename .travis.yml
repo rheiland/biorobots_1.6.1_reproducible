@@ -29,7 +29,8 @@ script:
 # Build steps
 script:
   - cd cmake_build
-  - cmake ..
+  # - cmake ..
+  - cmake -DCMAKE_CXX_COMPILER=g++-7 -DCMAKE_C_COMPILER=gcc-7 ..
   - make 
   - cp biorobots ..
   - cd ..
