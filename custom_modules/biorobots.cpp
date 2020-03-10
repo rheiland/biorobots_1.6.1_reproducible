@@ -66,6 +66,7 @@
 */
 
 #include "./biorobots.h"
+#include "../modules/PhysiCell_standard_modules.h" 
 
 void setup_microenvironment( void )
 {
@@ -101,8 +102,8 @@ void setup_microenvironment( void )
 
 void create_cell_types( void )
 {
-	SeedRandom( parameters.ints("random_seed") ); 
-	// housekeeping 
+	// now we call SeedRandom_per_thread() in main
+	// SeedRandom( parameters.ints("random_seed") ); 
 	
 	initialize_default_cell_definition();
 	cell_defaults.phenotype.secretion.sync_to_microenvironment( &microenvironment ); 
@@ -355,6 +356,7 @@ void setup_tissue( void )
 		pC = create_cell( director_cell ); 
 		pC->assign_position( position );
 		pC->is_movable = false; 
+		std::cout << " cell " << i << std::endl; 
 	}
 	
 	// place cargo clusters on the fringes 
