@@ -74,6 +74,7 @@
 #include <fstream>
 
 #include "./core/PhysiCell.h"
+// #include "./core/PhysiCell_constants.h"
 #include "./modules/PhysiCell_standard_modules.h" 
 
 // custom user modules 
@@ -99,7 +100,7 @@ int main( int argc, char* argv[] )
 	omp_set_num_threads(PhysiCell_settings.omp_num_threads);
 	
 	// PNRG setup 
-	// SeedRandom(); 
+	SeedRandom_per_thread();
 	
 	// time setup 
 	std::string time_units = "min"; 
