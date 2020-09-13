@@ -1,6 +1,7 @@
 import sys
 import string
-from pyMCDS import pyMCDS
+#from pyMCDS import pyMCDS
+from pyMCDS_cells import pyMCDS_cells
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib
@@ -11,10 +12,10 @@ print('argv=',sys.argv)
 print('argv[0]=',sys.argv[0])
 #p1=string.atof(sys.argv[1])
 
-#mcds = pyMCDS('output00000000.xml','output');
-#mcds = pyMCDS('output00000002.xml')
+#mcds = pyMCDS_cells('output00000000.xml','output');
+#mcds = pyMCDS_cells('output00000002.xml')
 fname = "output%08d.xml" % int(sys.argv[1])
-mcds = pyMCDS(fname)
+mcds = pyMCDS_cells(fname)
 
 #In [7]: mcds.data['discrete_cells'].keys()
 #Out[7]: dict_keys(['ID', 'position_x', 'position_y', 'position_z', 'total_volume', 'cell_type', 'cycle_model', 'current_phase', 'elapsed_time_in_phase', 'nuclear_volume', 'cytoplasmic_volume', 'fluid_fraction', 'calcified_fraction', 'orientation_x', 'orientation_y', 'orientation_z', 'polarity', 'migration_speed', 'motility_vector_x', 'motility_vector_y', 'motility_vector_z', 'migration_bias', 'motility_bias_direction_x', 'motility_bias_direction_y', 'motility_bias_direction_z', 'persistence_time', 'motility_reserved', 'receptor', 'elastic_coefficient'])
